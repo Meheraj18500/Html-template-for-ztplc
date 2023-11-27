@@ -33,7 +33,8 @@
 
  body{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: #333333;
   font-family: Courier;
   font-size: .92vw;
@@ -41,6 +42,12 @@
   font-variant: normal;
   font-weight: 100;
   line-height: .91vw;
+  gap: 2vw;
+}
+
+body #parent-container{
+  display: flex;
+  flex-direction: row;
   gap: 1.3vw;
 }
 
@@ -55,7 +62,7 @@ h1 {
 
 #container {
   max-width: 41.6vw;
-  margin: 1.3vw 0 0 12.415vw;
+  margin: 1.3vw 0 0 12.6vw;
 }
 
 #container section{
@@ -128,7 +135,7 @@ h1 {
   clip-path: polygon(88% 0, 100% 50%, 88% 100%, 0 100%, 0 0);
 }
 .input-group textarea{
-  height: 5.2vw;
+  min-height: 5.2vw;
 }
 
 #sectiontxt-input, 
@@ -148,9 +155,39 @@ h1 {
   color: #fff;
   border: none;
 }
-#character-input{
+/* #character-input{
   width: 78%;
+} */
+
+.input-group .options{
+  cursor: pointer;
+  border-radius: 0.325vw;
+  background-color: #000;
+  transition: all 300ms;
+  color: #fff;
+  width: 31.2vw;
+  margin: 0.52vw 0;
+  padding: 0 0.65vw;
+  font-size: .8vw;
 }
+
+.options.opened {
+  overflow-y: scroll;
+}
+
+.option {
+  height: 2.6vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 300ms;
+}
+
+.option:nth-child(1) {
+  border-radius: 15px;
+}
+
+
 #sectiontxt-input:focus, 
 #character-input:focus,
 #context-input:focus,
@@ -506,4 +543,48 @@ ul#line-counter-pdf{
 }
 #header-converter-cta .converter-item img.pdf{
   width: 2.34vw;
+}
+
+/* ======== Bottom Navigation ======== */
+.bottom-navigation{
+  width: 97.1vw;
+}
+.bottom-navigation ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-bottom: .65vw;
+}
+.bottom-navigation ul li a{
+  display: inline-block;
+  padding: 0.8vw 1.5vw 0.7vw 1.5vw;
+  margin: 0 0.25vw;
+  background-color: #555555;
+  position: relative;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: .90vw;
+  border-radius: .26vw;
+  -webkit-border-radius: .26vw;
+  -moz-border-radius: .26vw;
+  -ms-border-radius: .26vw;
+  -o-border-radius: .26vw;
+}
+.bottom-navigation ul li a:hover{
+  background-color: #414141;
+}
+.bottom-navigation ul li a::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: -.52vw;
+  right: .52vw;
+  width: 3.25vw;
+  height: .52vw;
+  background-color: #555555;
+  border-top-right-radius: .26vw;
+  border-top-left-radius: .26vw;
+}
+.bottom-navigation ul li a:hover::after{
+  background-color: #414141;
 }
